@@ -23,6 +23,13 @@ const App = () => {
     setDetails('');
   }
 
+  const deleteNote = (idx) => {
+    const copyTask = [...task];
+    copyTask.splice(idx, 1);
+    setTask(copyTask);
+    console.log("Note Deleted");
+  }
+
   return (
     <>
       <div className='min-h-screen lg:flex bg-black text-white'>
@@ -33,7 +40,10 @@ const App = () => {
           setDetails={setDetails}
           submitHandler={submitHandler}
         />
-        <NotesSection task={task} />
+        <NotesSection
+          task={task}
+          deleteNote={deleteNote}
+        />
       </div>
       <Footer />
     </>

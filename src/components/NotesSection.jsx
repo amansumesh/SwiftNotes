@@ -1,4 +1,4 @@
-const NotesSection = ({ task }) => {
+const NotesSection = ({ task, deleteNote }) => {
   return (
     <div className='lg:w-1/2 p-10'>
       <h1 className='text-3xl font-bold'>Recent Notes</h1>
@@ -7,7 +7,7 @@ const NotesSection = ({ task }) => {
           return (
             <div
               key={index}
-              className='h-52 w-40 bg-cover rounded bg-[#faf7b6] p-3'
+              className='h-52 w-40 bg-cover rounded bg-[#faf7b6] p-3 flex flex-col'
             >
               <h3 className='leading-tight text-xl text-center font-bold text-black'>
                 {elem.title}
@@ -15,6 +15,14 @@ const NotesSection = ({ task }) => {
               <p className='mt-2 leading-tight text-md font-medium text-gray-500 break-words text-wrap overflow-hidden'>
                 {elem.details}
               </p>
+
+              <button 
+              onClick={() =>{
+                deleteNote(index);
+              }}
+              className="mt-auto w-full bg-red-500 text-white font-bold py-1 rounded">
+                Delete
+              </button>
 
             </div>
           )
